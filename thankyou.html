@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Vielen Dank – Hausverwaltung de West – Immowest</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --sky:        #5BA4CF;
+      --sky-light:  #A8D4EF;
+      --sky-dark:   #2E7EB8;
+      --forest:     #1C2B22;
+      --forest-mid: #2E4636;
+      --cream:      #F8F5F0;
+      --white:      #FFFFFF;
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body:    'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--forest);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle background image texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=60') center / cover no-repeat;
+      opacity: 0.06;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Floating decorative rings */
+    .bg-circle {
+      position: fixed;
+      border-radius: 50%;
+      border: 1px solid rgba(91,164,207,0.08);
+      pointer-events: none;
+      z-index: 0;
+      animation: drift 14s ease-in-out infinite;
+    }
+    .bg-circle:nth-child(1) { width: 600px; height: 600px; top: -150px; right: -150px; }
+    .bg-circle:nth-child(2) { width: 350px; height: 350px; bottom: 80px;  left: -100px; animation-delay: 4s; opacity: 0.6; }
+    .bg-circle:nth-child(3) { width: 180px; height: 180px; top: 45%;      left: 8%;     animation-delay: 8s; opacity: 0.4; }
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0); }
+      50%       { transform: translate(8px, -12px); }
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      position: relative;
+      z-index: 10;
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+    .logo__mark {
+      width: 38px; height: 38px;
+      background: var(--sky);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.3s;
+    }
+    .logo:hover .logo__mark { background: var(--sky-dark); }
+    .logo__mark svg { width: 20px; height: 20px; stroke: white; fill: none; stroke-width: 2; }
+    .logo__name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--white);
+      display: block;
+      letter-spacing: 0.02em;
+    }
+    .logo__sub {
+      font-size: 0.6rem;
+      color: var(--sky);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 300;
+      display: block;
+    }
+
+    /* ── MAIN ── */
+    .main {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: rgba(46,70,54,0.55);
+      border: 1px solid rgba(91,164,207,0.14);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 4px;
+      padding: 3.5rem 3rem;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.4);
+      animation: cardIn 0.9s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(48px) scale(0.98); }
+      to   { opacity: 1; transform: translateY(0)   scale(1); }
+    }
+
+    /* ── ANIMATED CHECKMARK ── */
+    .check-wrap {
+      width: 76px; height: 76px;
+      border-radius: 50%;
+      background: rgba(91,164,207,0.1);
+      border: 1.5px solid rgba(91,164,207,0.25);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 2rem;
+      animation: popIn 0.6s 0.25s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.4); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    .check-wrap svg {
+      width: 34px; height: 34px;
+      stroke: var(--sky-light);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 50;
+      stroke-dashoffset: 50;
+      animation: drawCheck 0.55s 0.75s ease forwards;
+    }
+    @keyframes drawCheck { to { stroke-dashoffset: 0; } }
+
+    /* ── BADGE ── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.9rem;
+      background: rgba(91,164,207,0.1);
+      border: 1px solid rgba(91,164,207,0.22);
+      border-radius: 99px;
+      margin-bottom: 1.25rem;
+      animation: fadeUp 0.5s 0.2s ease both;
+    }
+    .badge::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--sky);
+      display: block;
+      flex-shrink: 0;
+    }
+    .badge span {
+      color: var(--sky-light);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    /* ── HEADING ── */
+    .title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+    .title em { font-style: italic; color: var(--sky-light); }
+
+    /* ── MESSAGE ── */
+    .message {
+      color: rgba(232,227,220,0.68);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 0.75rem;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+    .message strong { color: rgba(232,227,220,0.92); font-weight: 500; }
+
+    /* ── QUOTE / SIGN-OFF ── */
+    .quote {
+      color: rgba(232,227,220,0.38);
+      font-size: 0.875rem;
+      font-style: italic;
+      font-family: var(--font-display);
+      margin-bottom: 2rem;
+      animation: fadeUp 0.6s 0.48s ease both;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(91,164,207,0.25);
+      margin: 0 auto 2rem;
+      animation: fadeUp 0.5s 0.5s ease both;
+    }
+
+    /* ── NEXT STEPS BOX ── */
+    .next-steps {
+      background: rgba(28,43,34,0.5);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 3px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 2.5rem;
+      text-align: left;
+      animation: fadeUp 0.6s 0.55s ease both;
+    }
+    .next-steps__heading {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sky);
+      font-weight: 500;
+      margin-bottom: 1.1rem;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.875rem;
+      margin-bottom: 0.9rem;
+    }
+    .step:last-child { margin-bottom: 0; }
+    .step__num {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: rgba(91,164,207,0.12);
+      border: 1px solid rgba(91,164,207,0.22);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--sky-light);
+      margin-top: 2px;
+    }
+    .step__text {
+      font-size: 0.875rem;
+      color: rgba(232,227,220,0.62);
+      line-height: 1.65;
+    }
+    .step__text strong {
+      color: rgba(232,227,220,0.9);
+      font-weight: 500;
+    }
+
+    /* ── BUTTONS ── */
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.875rem;
+      justify-content: center;
+      animation: fadeUp 0.6s 0.65s ease both;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.75rem;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+    }
+    .btn svg { width: 15px; height: 15px; transition: transform 0.3s ease; fill: none; stroke: currentColor; stroke-width: 2; }
+    .btn:hover svg { transform: translateX(3px); }
+
+    .btn--primary {
+      background: var(--sky);
+      color: var(--white);
+      border: 2px solid var(--sky);
+    }
+    .btn--primary:hover {
+      background: var(--sky-dark);
+      border-color: var(--sky-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(91,164,207,0.3);
+    }
+    .btn--ghost {
+      background: transparent;
+      color: rgba(232,227,220,0.6);
+      border: 2px solid rgba(255,255,255,0.1);
+    }
+    .btn--ghost:hover {
+      border-color: rgba(255,255,255,0.22);
+      color: var(--white);
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 1.25rem 2rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .footer p { font-size: 0.75rem; color: rgba(232,227,220,0.22); }
+    .footer a { color: rgba(91,164,207,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer a:hover { color: var(--sky-light); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 520px) {
+      .card { padding: 2.25rem 1.25rem; }
+      .btn-group { flex-direction: column; }
+      .btn { justify-content: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-circle"></div>
+  <div class="bg-circle"></div>
+  <div class="bg-circle"></div>
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <a href="index.html" class="logo">
+      <div class="logo__mark">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/>
+          <path d="M9 21V12h6v9"/>
+        </svg>
+      </div>
+      <div>
+        <span class="logo__name">Hausverwaltung de West</span>
+        <span class="logo__sub">Immowest</span>
+      </div>
+    </a>
+  </div>
+
+  <main class="main">
+    <div class="card">
+
+      <!-- Animated check icon -->
+      <div class="check-wrap">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+
+      <!-- Badge: "Message received" -->
+      <div class="badge"><span>Nachricht erhalten</span></div>
+
+      <!-- Headline: "Thank you. We will be in touch." -->
+      <h1 class="title">Vielen Dank.<br/><em>Wir melden uns.</em></h1>
+
+      <!-- Message: "Your message has safely reached us. Our team personally reads every enquiry and will respond within 24 hours on working days." -->
+      <p class="message">
+        Ihre Nachricht ist sicher bei uns angekommen. Unser Team liest jede Anfrage persönlich und meldet sich innerhalb von <strong>24 Stunden</strong> an Werktagen bei Ihnen zurück.
+      </p>
+
+      <!-- Brand quote -->
+      <p class="quote">"We don't just manage properties. We take care of people."</p>
+
+      <div class="divider"></div>
+
+      <!-- What happens next -->
+      <div class="next-steps">
+        <!-- "What happens next?" -->
+        <div class="next-steps__heading">Was passiert als nächstes?</div>
+
+        <div class="step">
+          <div class="step__num">1</div>
+          <!-- "We review your enquiry and prepare a personalised response." -->
+          <div class="step__text"><strong>Wir prüfen Ihre Anfrage</strong> und bereiten eine persönliche Antwort für Sie vor.</div>
+        </div>
+        <div class="step">
+          <div class="step__num">2</div>
+          <!-- "You receive our reply by email within 24 hours on working days." -->
+          <div class="step__text"><strong>Sie erhalten unsere Antwort</strong> per E-Mail innerhalb von 24 Stunden an Werktagen.</div>
+        </div>
+        <div class="step">
+          <div class="step__num">3</div>
+          <!-- "If needed, we arrange a personal consultation appointment with you." -->
+          <div class="step__text"><strong>Bei Bedarf vereinbaren</strong> wir einen persönlichen Beratungstermin mit Ihnen.</div>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="btn-group">
+        <!-- "Back to Homepage" -->
+        <a href="../index.html" class="btn btn--primary">
+          Zurück zur Startseite
+          <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/></svg>
+        </a>
+        <!-- "Our Services" -->
+        <a href="/pages/services.html" class="btn btn--ghost">
+          Unsere Leistungen
+          <svg viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>
+      © 2025 Hausverwaltung de West – Immowest &nbsp;·&nbsp;
+      <a href="/pages/privacy.html">Datenschutz</a> &nbsp;·&nbsp;
+      <a href="/pages/privacy.html#impressum">Impressum</a>
+    </p>
+  </footer>
+
+</body>
+</html>

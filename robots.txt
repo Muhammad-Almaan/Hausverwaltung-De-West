@@ -1,0 +1,15 @@
+# robots.txt – Hausverwaltung de West Immowest
+# www.immowest-hausverwaltung.de
+
+User-agent: *
+Allow: /
+Allow: /pages/about.html
+Allow: /pages/services.html
+Allow: /pages/contact.html
+
+# Exclude thank you and privacy pages from search engines
+Disallow: /pages/thankyou.html
+Disallow: /pages/privacy.html
+
+# Sitemap location
+Sitemap: https://www.immowest-hausverwaltung.de/sitemap.xml
