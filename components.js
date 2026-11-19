@@ -120,11 +120,11 @@ function initComponents() {
           <!-- Column heading: "Contact" -->
           <h3 class="footer__col-title">Kontakt</h3>
           <div class="footer__links">
-            <a href="https://maps.google.com/?q=Obermarkstraße+100,44267+Dortmund" 
+            <a href="https://maps.google.com/?q=Buttweg+23,44229+Dortmund" 
                target="_blank"
                rel="noopener noreferrer"
                class="footer__link">
-              Obermarkstraße 100<br>44267 Dortmund
+              Buttweg 23<br>44229 Dortmund
             </a>
             <a href="tel:+4915560922517" class="footer__link">+49 231 9272 5415</a>
             <a href="mailto:d.dewest@immowest-hausverwaltung.de" class="footer__link">d.dewest@immowest-hausverwaltung.de</a>
